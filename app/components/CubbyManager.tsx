@@ -24,7 +24,6 @@ type CubbyManagerProps = {
 	userId?: string;
 };
 
-// TODO: Figure out why this isn't working
 export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) => {
 
 	// const user = useUser(); //TODO: Enable for Sync
@@ -73,8 +72,6 @@ export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) =
 
 	return (
 		<View style={styles.container}>
-			{/* TODO: figure out this oddity */}
-			<AddCubbyForm onSubmit={handleAddCubby} />
 			{cubbies.length === 0 ? (
 				<IntroText />
 			) : (
@@ -83,6 +80,7 @@ export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) =
 					onDeleteCubby={handleDeleteCubby}
 				/>
 			)}
+			<AddCubbyForm onSubmit={handleAddCubby} />
 		</View>
 	)
 }

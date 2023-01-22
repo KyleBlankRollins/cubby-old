@@ -12,22 +12,16 @@ export const IntroText = () => {
         Welcome to Cubby!
       </Text>
       <Text style={styles.paragraph}>
-        {/* TODO: update the rest for Cubby */}
-        Start adding a task using the form at the top of the screen to see how
-        they are created in Realm. You can also toggle the task status or remove
-        it from the list.
+        Get started by adding your first Cubby of books.
       </Text>
-      <Text style={styles.paragraph}>
-        Learn more about the React Native Realm SDK at:
-      </Text>
-      <Pressable
+      {/* <Pressable
         onPress={() =>
           openURLInBrowser('https://docs.mongodb.com/realm/sdk/react-native/')
         }>
         <Text style={[styles.paragraph, styles.link]}>
           docs.mongodb.com/realm/sdk/react-native
         </Text>
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };

@@ -28,22 +28,26 @@ export const AddCubbyForm: React.FC<AddCubbyFormProps> = ({ onSubmit }) => {
 
   return (
     <View style={styles.form}>
-      <TextInput
-        value={name}
-        placeholder="Enter new Cubby name"
-        onChangeText={setName}
-        autoCorrect={false}
-        autoCapitalize="none"
-        style={styles.textInput}
-      />
-      <TextInput
-        value={description}
-        placeholder="Enter new Cubby description"
-        onChangeText={setDescription}
-        autoCorrect={false}
-        autoCapitalize="none"
-        style={styles.textInput}
-      />
+      <View style={styles.inputs}>
+        <TextInput
+          value={name}
+          placeholder="Cubby name"
+          placeholderTextColor={colors.darkBlue}
+          onChangeText={setName}
+          autoCorrect={false}
+          autoCapitalize="none"
+          style={[styles.textInput, styles.textInputName]}
+        />
+        <TextInput
+          value={description}
+          placeholder="Cubby description"
+          placeholderTextColor={colors.darkBlue}
+          onChangeText={setDescription}
+          autoCorrect={false}
+          autoCapitalize="none"
+          style={[styles.textInput, styles.textInputDescription]}
+        />
+      </View>
       <Pressable onPress={handleSubmit} style={styles.submit}>
         <Text style={styles.icon}>＋</Text>
       </Pressable>
@@ -53,18 +57,29 @@ export const AddCubbyForm: React.FC<AddCubbyFormProps> = ({ onSubmit }) => {
 
 const styles = StyleSheet.create({
   form: {
-    height: 50,
-    marginBottom: 20,
+    flex: .25,
+    marginVertical: 10,
+    marginHorizontal: 5,
     flexDirection: "row",
     ...shadows,
   },
-  textInput: {
+  inputs: {
     flex: 1,
+  },
+  textInput: {
     paddingHorizontal: 15,
     paddingVertical: Platform.OS === "ios" ? 15 : 0,
     borderRadius: 5,
     backgroundColor: colors.white,
+    color: colors.darkBlue,
     fontSize: 17,
+  },
+  textInputName: {
+    flex: 1,
+    marginBottom: 10
+  },
+  textInputDescription: {
+    flex: 2
   },
   submit: {
     ...buttonStyles.button,
@@ -72,7 +87,7 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingHorizontal: 0,
     paddingVertical: 0,
-    marginLeft: 20,
+    marginLeft: 10,
     marginRight: 0,
   },
   icon: {

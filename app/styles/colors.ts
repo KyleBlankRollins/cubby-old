@@ -1,3 +1,5 @@
+// TODO: update styles
+
 const colors = {
   darkBlue: '#2A3642',
   purple: '#6E60F9',

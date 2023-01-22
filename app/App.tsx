@@ -8,7 +8,7 @@ import { CubbyManager } from './components/CubbyManager';
 
 const { useQuery } = RealmContext;
 
-export const AppNonSync = () => {
+export const App = () => {
   const result = useQuery(Cubby);
 
   const cubbies = useMemo(() => result.sorted('name'), [result]);

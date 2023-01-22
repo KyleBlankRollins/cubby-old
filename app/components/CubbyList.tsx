@@ -16,6 +16,7 @@ export const CubbyList: React.FC<CubbyListProps> = ({
 }) => {
   return (
     <View style={styles.listContainer}>
+      {/* TODO: Create CubbyOverview component */}
       <FlatList
         data={cubbies}
         keyExtractor={cubby => cubby._id.toString()}
