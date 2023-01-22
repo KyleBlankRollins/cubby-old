@@ -1,15 +1,19 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 
-import {Task} from './models/Task';
-import {TaskRealmContext} from './models';
-import {TaskManager} from './components/TaskManager';
+import { Cubby } from './models/Cubby';
+import { RealmContext } from './models';
+import { Text, View } from 'react-native';
 
-const {useQuery} = TaskRealmContext;
+import { CubbyManager } from './components/CubbyManager';
+
+const { useQuery } = RealmContext;
 
 export const AppNonSync = () => {
-  const result = useQuery(Task);
+  const result = useQuery(Cubby);
 
-  const tasks = useMemo(() => result.sorted('createdAt'), [result]);
+  const cubbies = useMemo(() => result.sorted('name'), [result]);
 
-  return <TaskManager tasks={tasks} />;
+  return (
+    <CubbyManager cubbies={cubbies} />
+  )
 };

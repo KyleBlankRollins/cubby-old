@@ -1,16 +1,14 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
-import {useApp, useUser} from '@realm/react';
-import {Pressable, StyleSheet, Text} from 'react-native';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { useApp, useUser } from '@realm/react';
+import { Pressable, StyleSheet, Text } from 'react-native';
 
-import {Task} from './models/Task';
-import {TaskRealmContext} from './models';
-import {TaskManager} from './components/TaskManager';
-import {buttonStyles} from './styles/button';
-import {shadows} from './styles/shadows';
+import { Task } from './models/Task';
+import { RealmContext } from './models';
+import { buttonStyles } from './styles/button';
+import { shadows } from './styles/shadows';
 import colors from './styles/colors';
-import {OfflineModeButton} from './components/OfflineModeButton';
 
-const {useRealm, useQuery} = TaskRealmContext;
+const { useRealm, useQuery } = RealmContext;
 
 export const AppSync: React.FC = () => {
   const realm = useRealm();
@@ -33,12 +31,10 @@ export const AppSync: React.FC = () => {
   return (
     <>
       <Text style={styles.idText}>Syncing with app id: {app.id}</Text>
-      <TaskManager tasks={tasks} userId={user?.id} />
       <Pressable style={styles.authButton} onPress={handleLogout}>
         <Text
           style={styles.authButtonText}>{`Logout ${user?.profile.email}`}</Text>
       </Pressable>
-      <OfflineModeButton />
     </>
   );
 };

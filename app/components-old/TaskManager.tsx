@@ -1,18 +1,18 @@
-import React, {useCallback} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useCallback } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-import {Task} from '../models/Task';
-import {TaskRealmContext} from '../models';
-import {IntroText} from './IntroText';
-import {AddTaskForm} from './AddTaskForm';
+import { Task } from '../models/Task';
+import { TaskRealmContext } from '../models';
+import { IntroText } from './IntroText';
+import { AddTaskForm } from './AddTaskForm';
 import TaskList from './TaskList';
 
-const {useRealm} = TaskRealmContext;
+const { useRealm } = TaskRealmContext;
 
 export const TaskManager: React.FC<{
   tasks: Realm.Results<Task & Realm.Object>;
   userId?: string;
-}> = ({tasks, userId}) => {
+}> = ({ tasks, userId }) => {
   const realm = useRealm();
 
   const handleAddTask = useCallback(
