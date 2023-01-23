@@ -39,10 +39,10 @@ export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) =
 		}
 
 		realm.write(() => {
-			const defaultSection = new Section(
-				realm,
-				name = "First section",
-			);
+			// const defaultSection = new Section(
+			// 	realm,
+			// 	name = "First section",
+			// );
 
 			const newCubby = new Cubby(
 				realm,
@@ -51,9 +51,7 @@ export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) =
 				userId,
 			)
 
-			console.log(defaultSection)
-
-			newCubby.sections.push(defaultSection);
+			// newCubby.sections.push(defaultSection);
 
 			return newCubby;
 		});
@@ -61,8 +59,10 @@ export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) =
 		[realm, userId],
 	);
 
+	// TODO: Show a confirm delete modal before deleting
+	// TODO: Investigate a soft delete vs hard delete
 	const handleDeleteCubby = useCallback(
-		(cubby: Cubby): void => {
+		(cubby: Cubby & Realm.Object): void => {
 			realm.write(() => {
 				realm.delete(cubby);
 			});
@@ -80,6 +80,7 @@ export const CubbyManager: React.FC<CubbyManagerProps> = ({ cubbies, userId }) =
 					onDeleteCubby={handleDeleteCubby}
 				/>
 			)}
+			{/* TODO: Don't show this all the time */}
 			<AddCubbyForm onSubmit={handleAddCubby} />
 		</View>
 	)

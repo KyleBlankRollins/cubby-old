@@ -1,5 +1,5 @@
 import { Realm } from '@realm/react';
-import { Section } from "./Section";
+import { Cubby } from "./Cubby";
 import {
   Author,
   Link,
@@ -27,7 +27,7 @@ export class Book extends Realm.Object<Book> {
   userId!: string;
   assignee!: {
     type: "linkingObjects",
-    objectType: Section,
+    objectType: Cubby,
     property: "books"
   }
 

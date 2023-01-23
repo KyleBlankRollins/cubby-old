@@ -1,12 +1,12 @@
 import { Realm } from "@realm/react";
-import { Section } from "./Section";
+import { Book } from './Book';
 
 export class Cubby extends Realm.Object<Cubby> {
   _id: Realm.BSON.ObjectId = new Realm.BSON.ObjectId();
   name!: string;
   description!: string;
-  sections!: Realm.List<Section>;
   userId!: string;
+  books!: Realm.List<Book>;
 
   static primaryKey = "_id";
 
