@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView, StyleSheet } from 'react-native';
 
 import { RealmContext } from './models';
@@ -11,7 +12,9 @@ export const AppWrapper = () => {
   return (
     <SafeAreaView style={styles.screen}>
       <RealmProvider>
-        <App />
+        <NavigationContainer>
+          <App />
+        </NavigationContainer>
       </RealmProvider>
     </SafeAreaView>
   );
